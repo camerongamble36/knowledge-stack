@@ -76,6 +76,9 @@
 |------|-----------|---------|------------|------------|-----------|
 | 2025-06 | **yt-dlp** | PantryOS | CLI/Python lib for downloading YouTube/Instagram media including metadata and transcripts | Best-in-class for media ingestion; handles auth, formats, subtitles | No official API; CLI-wrapper pattern can be fragile to version changes |
 | 2025-06 | **WhisperKit** | Cues | On-device speech recognition for Apple Silicon using OpenAI Whisper models | Privacy-first, low-latency; enables interruption detection without server round-trip | Apple/iOS only; model size vs. accuracy tradeoff |
+| 2026-06 | **Playwright** (`@playwright/test`) | Canvas (web) | Cross-browser end-to-end testing framework that drives real browsers | De-facto standard for modern web e2e; auto-wait, parallelism, trace viewer; same suite runs against deployed beta via `E2E_BASE_URL` | Heavier/slower than unit tests; browser binaries to install & manage |
+| 2026-06 | **Style Dictionary** (v4) | Canvas (design-system) | Build tool that compiles design tokens (DTCG JSON) to multiple platform outputs | One token source → CSS vars + Tailwind preset + Flutter Dart; makes cross-platform drift structurally impossible | Custom-format learning curve; adds a build step before web/mobile consume tokens |
+| 2026-06 | **culori** | Canvas (design-system) | JS color library with OKLCH / perceptual color math + gamut mapping | Generate perceptually-even token ramps with brand anchors pinned; reliable OKLCH↔sRGB conversion | Large general-purpose lib for a narrow use; build-time dependency in the token generator |
 
 ---
 
