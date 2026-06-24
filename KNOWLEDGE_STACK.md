@@ -31,6 +31,10 @@
 - **Three.js** — 3D scene setup, meshes, cameras, lighting, basic geometry
 - **GSAP** — timeline animations, scroll triggers, easing
 - **Howler.js** — web audio, sound management
+- **Shadcn** - A set of beautifully designed components that you can customize, extend, and build on. The foundation of beautiful design system components
+- **React Bits** - UI Component Framework for building beautiful custom components, built on top of shadcn
+- **Aceternity UI** - UI Component Framework for building beautiful custom components, , built on top of shadcn
+- **Magic UI** - UI Component Framework for building beautfiul custom components, built on top of shadcn
 
 ### Backend
 - **FastAPI** — routing, dependency injection, Pydantic models, async endpoints
