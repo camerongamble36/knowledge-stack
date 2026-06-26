@@ -1,6 +1,8 @@
 # KNOWLEDGE_STACK.md
 > My personal tech stack registry for Claude and Claude Code sessions.
 > **Rule:** If a technology is in "Known & Comfortable", use it freely. If it's unlisted or unfamiliar, explain it before using it — what it is, why it fits, and key tradeoffs — then ask before proceeding. If approved, add it to "Learning / Recently Added" with a date and context note.
+>
+> **Agents:** read [AGENTS.md](AGENTS.md) for the full operating contract + prompting principles, [PATTERNS.md](PATTERNS.md) for how to build the patterns below, and [README](README.md) for orientation.
 
 ---
 
@@ -186,6 +188,33 @@
 - **Trello API** — task automation
 - **Upstash** — managed Redis (ephemeral keys)
 - **Firebase Cloud Messaging (FCM)** — push notifications
+
+---
+
+## 🧩 Design Patterns
+
+> Recurring "house" architectures I reach for, derived from my projects. The same rule applies: **prefer these for anything architectural**; propose a new pattern only with justification. **Build guides for each →** [PATTERNS.md](PATTERNS.md).
+
+### Backend / API
+- **BFF and Domain-API split** — Next.js App Router BFF ↔ separate NestJS domain API that owns DB + secrets _(lobbi, chorus)_ · [build](PATTERNS.md#1-bff-and-domain-api-split)
+- **Layered NestJS service** — controllers → services → repositories, DTO validation at the edge _(lobbi, michelin, yogicam, canvas)_ · [build](PATTERNS.md#2-layered-nestjs-service)
+- **Repository over raw-SQL migrations** — versioned hand-written SQL on Supabase Postgres, no ORM _(lobbi, community)_ · [build](PATTERNS.md#3-repository-over-raw-sql-migrations)
+- **Firebase-Functions-hosted NestJS** — wrap a Nest app in `onRequest`, multi-env dev/beta/prod _(canvas, michelin, yogicam, form-api)_ · [build](PATTERNS.md#4-firebase-functions-hosted-nestjs)
+- **Versioned ingestion pipeline** — adapter → parse → normalize → enrich → reconcile → canonical repo _(michelin)_ · [build](PATTERNS.md#5-versioned-ingestion-pipeline)
+
+### Auth / Security
+- **HMAC-signed stateless tokens** — `node:crypto` signed payloads for anonymous/link access, constant-time compare _(lobbi, community, chorus)_ · [build](PATTERNS.md#6-hmac-signed-stateless-tokens)
+- **Internal API-key guard** — shared-secret service-to-service (Next ↔ Nest) _(lobbi, canvas, michelin, yogicam)_ · [build](PATTERNS.md#7-internal-api-key-guard)
+- **On-device end-to-end encryption** — AES-256-GCM + PBKDF2/HKDF, keys in secure storage, server stores only ciphertext _(chapters)_ · [build](PATTERNS.md#8-on-device-end-to-end-encryption)
+
+### Mobile / Data
+- **Flutter clean-layered with Riverpod** — Drift → repository/service → providers → UI, codegen via build_runner _(genesis, chapters, everyday)_ · [build](PATTERNS.md#9-flutter-clean-layered-with-riverpod)
+- **Offline-first local-SQLite source of truth** — Drift at-rest truth synced to Supabase via PowerSync _(everyday, chapters)_ · [build](PATTERNS.md#10-offline-first-local-sqlite-source-of-truth)
+
+### Cross-cutting
+- **Cross-platform design tokens** — DTCG JSON → Style Dictionary (+culori) → CSS/Tailwind/Dart from one source _(canvas, genesis, chapters)_ · [build](PATTERNS.md#11-cross-platform-design-tokens)
+- **Monorepo with shared schema package** — one Zod schema/types package shared across web + api _(lobbi, community; parallel Dart/TS in yogaflow)_ · [build](PATTERNS.md#12-monorepo-with-shared-schema-package)
+- **Forced tool-use for structured LLM output** — Claude Messages API forced-tool schema for typed JSON, prompts reused in Promptfoo evals _(lobbi, yogicam)_ · [build](PATTERNS.md#13-forced-tool-use-for-structured-llm-output)
 
 ---
 
