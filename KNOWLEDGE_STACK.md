@@ -22,6 +22,7 @@
 - **Python** — scripting, basic OOP; note: not deeply proficient in advanced Python patterns
 - **Dart / Flutter** — widget tree, state management, cross-platform mobile, platform channels
 - **SQL** — raw queries, joins, migrations, indexes
+- **Swift** — native iOS/watchOS development (SwiftUI, WatchKit, Combine, Observation); YogaFlow watch app
 
 ### Frontend
 - **React** — functional components, hooks (useState, useEffect, useContext), component composition
@@ -35,25 +36,70 @@
 - **React Bits** - UI Component Framework for building beautiful custom components, built on top of shadcn
 - **Aceternity UI** - UI Component Framework for building beautiful custom components, , built on top of shadcn
 - **Magic UI** - UI Component Framework for building beautfiul custom components, built on top of shadcn
+- **Framer Motion** (`motion`) — declarative React animation; calm, reduced-motion-aware micro-interactions
+- **Headless UI** — unstyled, accessible React component primitives
+- **Radix UI** — headless UI primitives (the base shadcn builds on)
+- **Lucide / Heroicons / Font Awesome** — React/web icon sets
+- **next-themes** — light/dark theme management for Next.js
+- **next-intl** — i18n + locale routing for Next.js (en/de/es/fr/tr)
+- **react-hook-form** (+ `@hookform/resolvers`) — form state & validation, paired with Zod
+- **Flowbite / flowbite-react** — Tailwind component library
+- **Recharts / ApexCharts** — React charting libraries
+- **fl_chart** — Flutter charting (mood, stats, coverage)
+- **clsx / tailwind-merge / class-variance-authority** — Tailwind class composition utilities
+- **PWA** — installable, phone-first web apps (service workers, Web Push); Lobbi & Chorus
 
 ### Backend
 - **FastAPI** — routing, dependency injection, Pydantic models, async endpoints
 - **Node.js / Express** — REST APIs, middleware, routing
 - **NestJS** — modules, controllers, services, dependency injection
 - **.NET / ASP.NET** — controllers, middleware, DI container, minimal APIs
+- **Firebase Cloud Functions** — serverless host for the NestJS APIs (Node 18–24)
+- **NestJS modules** — `@nestjs/config`, `@nestjs/throttler` (rate limiting), `@nestjs/swagger` (OpenAPI), `@nestjs/schedule` (cron)
+- **class-validator / class-transformer** — NestJS DTO validation & serialization
+- **Zod** — schema validation + env parsing, shared across client & server (default validation layer)
+- **Helmet** — HTTP security headers
+- **Handlebars** — server-side templating (transactional emails)
+- **Multer / Busboy** — multipart file-upload handling
+- **PowerSync** — offline-first sync engine (local SQLite ↔ Supabase Postgres), self-hosted on Fly.io
 
 ### Mobile
 - **.NET MAUI Blazor Hybrid** — component lifecycle, platform services, WebView bridge, Android/Windows targeting
 - **Flutter** — widgets, Navigator, platform channels, state (Provider/Riverpod basics)
+- **Material 3** — Flutter Material Design foundation
+- **go_router** — declarative routing/navigation for Flutter
+- **flutter_secure_storage** — encrypted Keychain/Keystore storage for keys & tokens
+- **shared_preferences** — lightweight key-value local storage
+- **flutter_local_notifications** (+ `timezone`) — scheduled local notifications
+- **workmanager** — background task scheduling
+- **just_audio / audioplayers / record** — audio playback & recording
+- **video_player** — video playback
+- **image_picker / file_picker / share_plus** — media & file pickers / sharing
+- **cached_network_image** — network image loading with caching
+- **google_fonts** — runtime Google Fonts in Flutter
+- **permission_handler** — runtime permission requests
+- **connectivity_plus / device_info_plus / sensors_plus / package_info_plus** — device & runtime info, sensors
+- **flutter_blue_plus** — Bluetooth LE
+- **flutter_dotenv** — env loading in Flutter
 
 ### GIS / Mapping
 - **ArcGIS Runtime SDK** — offline map downloads, OAuth authentication, basemap sessions, pin/geofence management, native MapView + Blazor WebView hybrid architecture
+- **Mapbox** (`mapbox_maps_flutter`) — map rendering, custom styles & geocoding
+- **Google Maps / Places API** — place data, address autocomplete, venue enrichment
+- **geolocator / geocoding / location** — device GPS & address↔coordinate conversion
 
 ### Databases & Storage
 - **SQLite** — embedded DB, schema design, pragmas
 - **Dapper** — micro-ORM, raw SQL mapping, typed queries
 - **Firebase (Realtime Database)** — real-time sync, rules, client SDK
 - **Firebase Hosting** — static/SPA deployment, custom domains
+- **PostgreSQL** — relational DB via Supabase (RLS, raw-SQL migrations)
+- **Drift** — type-safe Dart SQLite ORM; local-first source of truth (codegen via build_runner)
+- **sqflite** — direct Flutter SQLite access
+- **Cloud Firestore** — Firebase document database
+- **Firebase Cloud Storage** — file/asset/blob storage
+- **Redis** (Upstash, `ioredis`) — ephemeral / TTL key store
+- **IndexedDB** — in-browser store for the hover-define extension (context/RAG)
 
 ### AI / LLM
 - **Anthropic Claude API** — Messages API, system prompts, multi-turn conversations, tool use / function calling
@@ -61,16 +107,85 @@
 - **Prompt Engineering** — chain-of-thought, role prompting, structured output, XML tags, verification layers
 - **CrewAI** — multi-agent orchestration (certified); role/task/crew patterns
 - **yt-dlp** — YouTube/Instagram media download, transcript extraction, format handling
+- **OpenAI API** — GPT-4o + embeddings (Node & Dart SDKs)
+- **Voyage AI** — semantic embeddings (`voyage-3.5`)
+- **flutter_gemma** — on-device LLM inference (Gemma/Qwen) for private summarization
+- **RunwayML** — text/image → video generation
+- **Promptfoo** — LLM eval framework (tone/values + structured-output, Claude-graded)
 
 ### DevOps & Infrastructure
 - **Git / GitHub** — branching, PRs, Actions basics, submodules
 - **Docker** — Dockerfiles, containers, basic compose
 - **Firebase Hosting** — deploy pipeline, rewrites, caching
+- **GitHub Actions** — CI/CD (lint, type-check, test, deploy) across web/api/mobile
+- **Fly.io** — container hosting for NestJS APIs & sync services (Docker + fly.toml)
+- **Vercel** — Next.js frontend hosting (Lobbi, Chorus)
+- **Firebase CLI / Emulator Suite** — serverless deploy & local emulation
+- **Supabase CLI** — linked-project config & versioned SQL migrations
+- **Google Cloud Scheduler** — scheduled/cron HTTP jobs (ingestion, sync)
+- **GitHub Packages** — private npm registry for `@camerongamble36/*` packages
+- **RabbitMQ / AMQP** (`amqplib`) — message broker (canvas messaging-api)
+- **Multi-environment pipelines** — dev / beta / production (Firebase & Supabase projects)
 
 ### Auth & APIs
 - **OAuth 2.0** — authorization code flow, token refresh, PKCE
 - **REST** — resource design, status codes, versioning conventions
 - **Google Drive API** — file read/write, permissions, MCP integration
+- **Supabase Auth** (+ `@supabase/ssr`) — email magic-link / OTP sign-in, JWT, RLS-based access
+- **Firebase Authentication** (+ `firebase-admin`) — user/admin auth & server-side token verification
+- **HMAC-signed stateless tokens** — hand-rolled signed access tokens via `node:crypto` (anonymous participant/teacher links)
+- **google_sign_in** — Google OAuth on mobile
+- **local_auth** — biometric / PIN unlock
+- **mTLS** — mutual-TLS one-time job-key protocol for service-to-service auth
+- **Internal API-key guards** — shared-secret service-to-service auth (`x-api-key` / `x-internal-key`)
+
+### Testing
+- **Jest** (+ `ts-jest`) — primary unit/e2e runner for Node, NestJS & Next.js
+- **Supertest** — HTTP endpoint assertions (NestJS e2e)
+- **Vitest** — fast unit tests (design-system React packages)
+- **@testing-library/react** (+ `jest-dom`, `user-event`) — React component testing
+- **Mocha / Chai / Sinon** — web unit & contract testing
+- **flutter_test / integration_test** — Flutter unit, widget & integration tests
+- **firebase-functions-test** — Firebase Functions test harness
+- **XCTest / Swift Testing** — native watchOS unit & UI tests
+- *(Playwright — already logged under Learning / Recently Added)*
+
+### State Management
+- **Riverpod** (`flutter_riverpod`, `riverpod_annotation`) — primary Flutter state & DI
+- **Provider** — Flutter state / DI (canvas, michelin, yogicam)
+- **get_it** — service locator / dependency injection (Flutter)
+- *(React: hooks + Server Components; forms via react-hook-form — no external store)*
+
+### Build & Tooling
+- **build_runner** — Dart code-generation driver
+- **drift_dev** — Drift database codegen
+- **freezed / json_serializable** — Dart immutable models & JSON codegen
+- **ESLint** — JS/TS linting (`eslint-config-next`, `typescript-eslint`)
+- **Prettier** (+ `prettier-plugin-tailwindcss`) — formatting & Tailwind class ordering
+- **flutter_lints** — Dart/Flutter lint ruleset
+- **PostCSS / Autoprefixer** — CSS processing for Tailwind
+- **npm workspaces** — monorepo management (Lobbi)
+- **sharp / plaiceholder** — build-time image optimization & blur placeholders
+- **flutter_launcher_icons / flutter_native_splash** — app icon & splash generation
+- **Xcode** — native watchOS build system
+- *(Style Dictionary & culori — already logged under Learning / Recently Added)*
+
+### Security & Crypto
+- **AES-256-GCM / PBKDF2 / HKDF** — on-device E2EE & key derivation via `encrypt` + `pointycastle` (Dart) and `node:crypto` (server) — Chapters' encrypted journal
+- **flutter_secure_storage** — OS-keystore-backed secret storage (also listed under Mobile)
+
+### Third-Party Services & Platforms
+- **Supabase** — Postgres + Auth + Storage + Edge Functions (BaaS); the "house" backend for newer apps
+- **Firebase / Google Cloud** — Auth, RTDB, Firestore, Storage, Functions, Hosting, Messaging, Scheduler
+- **Stripe** — payments / checkout sessions & webhooks
+- **Resend** — transactional & newsletter email
+- **Mixpanel** — product analytics / event tracking
+- **Spotify Web API** — playlists, song requests, play history
+- **Twilio** — SMS messaging (raw REST)
+- **MindBody API** — yoga class scheduling & booking sync
+- **Trello API** — task automation
+- **Upstash** — managed Redis (ephemeral keys)
+- **Firebase Cloud Messaging (FCM)** — push notifications
 
 ---
 
@@ -90,7 +205,9 @@
 
 > Technologies Claude has suggested but I haven't greenlit yet. Cleared after decision.
 
-*(empty)*
+| Technology | Project | What it is | Why proposed | Status |
+|-----------|---------|------------|--------------|--------|
+| **Cloudflare Stream** | Chorus | Video upload → transcode → adaptive HLS + thumbnails, with resumable (tus) direct browser uploads | Only new service the Chorus design needs; offloads the entire video pipeline | Planned — not yet wired (Chorus is pre-build) |
 
 ---
 
@@ -106,14 +223,17 @@
 
 | Domain | Key Technologies |
 |--------|----------------|
-| Full-Stack Web | React, Next.js, TypeScript, FastAPI, NestJS, Node/Express |
-| Mobile | Flutter, .NET MAUI Blazor Hybrid |
-| GIS / Mapping | ArcGIS Runtime SDK |
-| AI / Agents | Claude API, Claude Code, CrewAI, WhisperKit |
-| Data | SQLite, Dapper, Firebase RTDB |
-| DevOps | Git/GitHub, Docker, Firebase Hosting |
-| Auth | OAuth 2.0, REST |
+| Full-Stack Web | React, Next.js, TypeScript, NestJS, Node/Express, FastAPI, Tailwind |
+| Mobile | Flutter, Riverpod, Drift, go_router, .NET MAUI Blazor Hybrid, Swift/watchOS |
+| GIS / Mapping | Mapbox, Google Maps/Places, ArcGIS Runtime SDK, geolocator |
+| AI / Agents | Claude API, Claude Code, CrewAI, OpenAI, Voyage AI, flutter_gemma, Promptfoo, WhisperKit |
+| Data & Sync | PostgreSQL/Supabase, Firebase RTDB/Firestore, SQLite/Drift, Redis, PowerSync |
+| Backend-as-a-Service | Supabase, Firebase |
+| DevOps / Hosting | Git/GitHub, GitHub Actions, Docker, Fly.io, Vercel, Firebase Hosting |
+| Testing | Jest, Vitest, Playwright, flutter_test, XCTest, Promptfoo |
+| Auth | Supabase Auth, Firebase Auth, OAuth 2.0, HMAC tokens, REST |
+| Payments / Comms / Analytics | Stripe, Resend, Twilio, Mixpanel, Spotify, MindBody |
 
 ---
 
-*Last updated: 2025-06-05 | Maintained by Cam + Claude*
+*Last updated: 2026-06-25 | Maintained by Cam + Claude (project-sweep audit across 13 repos)*
