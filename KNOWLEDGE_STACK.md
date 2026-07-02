@@ -231,6 +231,7 @@
 | 2026-06 | **culori** | Canvas (design-system) | JS color library with OKLCH / perceptual color math + gamut mapping | Generate perceptually-even token ramps with brand anchors pinned; reliable OKLCH↔sRGB conversion | Large general-purpose lib for a narrow use; build-time dependency in the token generator |
 | 2026-06-26 | **image_picker** (`^1.1.2`) + **firebase_storage** (`^13.4.2`) | yogicam (mobile admin) | First-party camera/gallery picker + Firebase Cloud Storage SDK | Wire resource image upload in the admin app: pick a photo → upload to `resources/<folder>/` → store the download URL (`ImageUploadField`); both already "Known & Comfortable", logged here for provenance | `firebase_storage` major must track the pinned `firebase_core 4.x` (12.x conflicts → 13.x); Storage rules must allow admin writes under `resources/**` or uploads 403 |
 | 2026-07-01 | **Google Cloud Run** | michelin-map (menu-worker) | Serverless container platform on GCP (scale-to-zero, pay-per-use) — the same runtime that gen-2 Firebase Functions already use | Host the Playwright menu-fetch worker in the **same GCP project as Firebase**: cheaper than a 2nd platform (free tier covers the low volume), runtime service-account via ADC (no key file to ship), one bill/IAM/logs. Chosen over Fly.io (2nd provider) and over cramming Chromium into a Function (fragile) | Cold start on first request after scale-to-zero; a Dockerfile/container to maintain vs a plain Function; browser workloads want ≥1 GiB memory |
+| 2026-07-01 | **google-github-actions/auth** (`@v2`) | yogicam (CI) | Official GitHub Action that authenticates a workflow to Google Cloud — writes the SA key (or WIF creds) and exports `GOOGLE_APPLICATION_CREDENTIALS` as ADC | Replaced a hand-rolled "write SA key + set `GOOGLE_APPLICATION_CREDENTIALS`" step that intermittently left `firebase deploy` throwing "Failed to authenticate"; the action provides ADC that firebase-tools reliably consumes (fixed dev + prod deploys) | Still key-file based (not workload identity), so a revoked/disabled per-env SA key still fails — the action writes it but firebase can't get a token (this is exactly what broke beta) |
 
 ---
 
@@ -269,4 +270,4 @@
 
 ---
 
-*Last updated: 2026-06-25 | Maintained by Cam + Claude (project-sweep audit across 13 repos)*
+*Last updated: 2026-07-01 | Maintained by Cam + Claude (project-sweep audit across 13 repos)*
