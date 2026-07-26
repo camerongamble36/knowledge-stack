@@ -109,6 +109,8 @@
 - **Prompt Engineering** — chain-of-thought, role prompting, structured output, XML tags, verification layers
 - **CrewAI** — multi-agent orchestration (certified); role/task/crew patterns
 - **yt-dlp** — YouTube/Instagram media download, transcript extraction, format handling
+- **Hugging Face** — model/dataset/Space hub; MCP connector exposes Hub search plus callable Gradio Spaces as tools (https://huggingface.co)
+- **FLUX.1-Krea-dev** — photorealistic text-to-image model; seeded, reproducible generation for the meal-prep recipe card photos (https://huggingface.co/spaces/mcp-tools/FLUX.1-Krea-dev)
 - **OpenAI API** — GPT-4o + embeddings (Node & Dart SDKs)
 - **Voyage AI** — semantic embeddings (`voyage-3.5`)
 - **flutter_gemma** — on-device LLM inference (Gemma/Qwen) for private summarization
@@ -235,6 +237,8 @@
 | 2026-07-01 | **flutter_svg** (`^2.x`) | everyday | Flutter package that renders (and `ColorFilter`-tints) SVG assets | Adopt the canvas design-system's Heroicon SVG icons the way the `chapters` app does — crisp, scalable, tintable — for the UI/UX overhaul; Material glyphs alone read generic | Slightly higher render cost than an icon font; SVG files must be bundled as assets |
 | 2026-07-05 | **MCP server (Model Context Protocol)** | yogicam (admin API) | Anthropic's open protocol for exposing tools/data to Claude apps; a thin server adapter over an existing API so Claude Code / claude.ai can call it as tools | Turn the already-guarded NestJS admin API into a conversational admin console ("add these books, draft descriptions") without rebuilding forms; ~zero hosting cost since it wraps the existing API | New protocol to learn; tool scoping must be conservative (read/write split, no deletes) so a misfired call can't destroy data; forms remain the fallback UI |
 | 2026-07-04 | **Workload Identity Federation** (WIF) + runtime ADC | yogicam (CI) | Keyless GCP auth: GitHub Actions' per-run OIDC token is exchanged (via a per-project WIF pool + OIDC provider) for short-lived creds that impersonate the deployer SA — no downloadable key. Paired with the SSR runtime using ADC (its Cloud Run runtime SA) instead of an injected `FIREBASE_SERVICE_ACCOUNT` key. | Ends the recurring dead-SA-key failure that broke beta then prod deploys ("Failed to authenticate"); nothing long-lived to rotate/expire/leak; branch-scoped trust (prod CI auth only from `master`) is tighter than a key ever was. Google's recommended approach, supersedes the plain `google-github-actions/auth` key-file row above. | More one-time GCP setup (pool/provider/IAM per project); attribute-mapping/condition is fiddly the first time; an org policy could block external identity pools; runtime `createSessionCookie` needs the runtime SA to hold Token Creator (signBlob) + `firebaseauth.admin`. |
+| 2026-07-26 | **Hugging Face** | Nutrition (recipe cards) | Hub for models, datasets and Gradio Spaces; the MCP connector makes Spaces callable as tools | Gave a hosted image model with no local GPU, no API key plumbing, and no per-image billing | Spaces cold-start and can queue; generated files sit on short-lived `*.hf.space` URLs, and Anthropic's cloud sandbox allowlist blocks the domain — image bytes must be fetched on-computer |
+| 2026-07-26 | **FLUX.1-Krea-dev** | Nutrition (recipe cards) | Photorealistic text-to-image model tuned to avoid the glossy over-rendered "AI look" | Food photography that reads as real; fixed seed + fixed params make every card image reproducible and refreshable | Slower than turbo models (~24 steps); prompt-length sensitive (~60-70 words); no text rendering, hence the "No text" clause |
 
 ---
 
@@ -264,6 +268,7 @@
 | Mobile | Flutter, Riverpod, Drift, go_router, .NET MAUI Blazor Hybrid, Swift/watchOS |
 | GIS / Mapping | Mapbox, Google Maps/Places, ArcGIS Runtime SDK, geolocator |
 | AI / Agents | Claude API, Claude Code, CrewAI, OpenAI, Voyage AI, flutter_gemma, Promptfoo, WhisperKit |
+| AI / Image Gen | Hugging Face, FLUX.1-Krea-dev |
 | Data & Sync | PostgreSQL/Supabase, Firebase RTDB/Firestore, SQLite/Drift, Redis, PowerSync |
 | Backend-as-a-Service | Supabase, Firebase |
 | DevOps / Hosting | Git/GitHub, GitHub Actions, Docker, Fly.io, Vercel, Firebase Hosting |
@@ -273,4 +278,4 @@
 
 ---
 
-*Last updated: 2026-07-01 | Maintained by Cam + Claude (project-sweep audit across 13 repos)*
+*Last updated: 2026-07-26 | Maintained by Cam + Claude (project-sweep audit across 13 repos)*
