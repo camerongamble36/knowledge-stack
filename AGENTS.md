@@ -51,6 +51,7 @@ Before introducing **any** library, framework, pattern, or service:
 2. **Prefer an existing pattern.** For anything architectural, consult the **Design Patterns** catalog and **[PATTERNS.md](PATTERNS.md)**, and follow the established shape. Propose a *new* pattern only with justification.
 3. **When approved, record it.** Append **one distinct entry** to *Learning / Recently Added* (date, project, what / why / tradeoffs). Don't duplicate an existing entry. Keep it high-signal — skip trivial utilities. Tech that's only *planned* goes under **Proposed / Pending**, not Known.
 4. **Sync.** Commit and push so every session and project sees the update. If you might be on a different machine or a parallel session, **pull first**.
+5. **Claude Code:** use the `managing-knowledge-stack` skill ([skills/managing-knowledge-stack/SKILL.md](skills/managing-knowledge-stack/SKILL.md)) for any add / edit / promote / delete. It holds the entry formats and the commit flow.
 
 ### Do / Don't
 

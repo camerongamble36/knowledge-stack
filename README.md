@@ -27,6 +27,7 @@ The full, Karpathy-grounded principles + the do/don't checklist live in **[AGENT
 | **[KNOWLEDGE_STACK.md](KNOWLEDGE_STACK.md)** | The registry: Known & Comfortable tools, Learning / Recently Added, Proposed / Pending, Avoid — plus the **Design Patterns** catalog |
 | **[PATTERNS.md](PATTERNS.md)** | Build playbooks: how to actually wire up each design pattern (problem, stack, steps, reference repo, gotchas) |
 | **[AGENTS.md](AGENTS.md)** | The operating contract for agents: prompting principles + the do/don't checklist |
+| **[skills/managing-knowledge-stack](skills/managing-knowledge-stack/SKILL.md)** | Claude Code skill for adding / editing / promoting / deleting registry entries. Install: `ln -s "$PWD/skills/managing-knowledge-stack" ~/.claude/skills/` |
 | **README.md** | You are here — orientation |
 
 ## How agents use it (short version)
